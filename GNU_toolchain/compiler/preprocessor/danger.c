@@ -1,7 +1,7 @@
 #include <stdio.h>
 unsigned inc(unsigned n) {
 	// Preproccessor magic 
-	++n;
+    ++n;
 	return n;	
 }
 

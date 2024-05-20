@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-unsigned fact(unsigned);
+int fact(int);
 
 int main() {
-	printf("%u", fact(10));
+	printf("%d", fact(10));
 	return 0;
 }

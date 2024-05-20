@@ -9,4 +9,4 @@
 * clang -cc1 -ast-view fact.c
 * sudo apt install gv
 * sudo apt install graphviz
-* /home/chansons/Tools/Compilers/llvm-project/build/bin/clang -Xclang -ast-dump fact.c > fact.ast
+* clang-15 -Xclang -ast-dump fact.c > fact.ast
