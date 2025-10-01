@@ -1,0 +1,133 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=964, cgraph_uid=16, symbol_order=15)
+
+
+Analyzing function body size: printf/15
+
+IPA function summary for printf/15 always_inline inlinable
+  global time:     15.000000
+  self size:       7
+  global size:     7
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    __printf_chk/25 function body not available
+      freq:1.00 loop depth: 0 size: 4 time: 13
+       op0 is compile time invariant
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+Analyzing function body size: fact/23
+
+IPA function summary for fact/23 inlinable
+  global time:     37.363637
+  self size:       8
+  global size:     10
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:5.000000, time:35.363637
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+
+int fact (int n)
+{
+  int _1;
+  int mult_acc_5;
+  int mult_acc_6;
+  int mul_tmp_7;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_2 = PHI <n_4(D)(2), _1(5)>
+  # mult_acc_5 = PHI <1(2), mult_acc_6(5)>
+  if (n_2 <= 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  mul_tmp_7 = n_2 * mult_acc_5;
+  return mul_tmp_7;
+
+  <bb 5> [local count: 955630225]:
+  _1 = n_2 + -1;
+  mult_acc_6 = mult_acc_5 * n_2;
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+
+Analyzing function body size: main/24
+
+IPA function summary for main/24 inlinable
+  global time:     49.363637
+  self size:       11
+  global size:     13
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:4.000000, time:34.363637
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    __printf_chk/25 function body not available
+      freq:1.00 loop depth: 0 size: 4 time: 13
+       op0 is compile time invariant
+       op1 is compile time invariant
+
+int main ()
+{
+  int n;
+  int mult_acc_1;
+  int mult_acc_4;
+  int mul_tmp_5;
+  int _6;
+  int mult_acc_7;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_3 = PHI <10(2), _6(5)>
+  # mult_acc_4 = PHI <1(2), mult_acc_7(5)>
+  if (n_3 == 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  # mult_acc_1 = PHI <mult_acc_4(3)>
+  mul_tmp_5 = mult_acc_1;
+  __printf_chk (1, "%d\n", mul_tmp_5);
+  return 0;
+
+  <bb 5> [local count: 955630225]:
+  _6 = n_3 + -1;
+  mult_acc_7 = n_3 * mult_acc_4;
+  goto <bb 3>; [100.00%]
+
+}
+
+

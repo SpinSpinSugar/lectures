@@ -1,0 +1,43 @@
+int fact (int n)
+{
+  int D.2553;
+
+  if (n <= 1) goto <D.2551>; else goto <D.2552>;
+  <D.2551>:
+  D.2553 = n;
+  // predicted unlikely by early return (on trees) predictor.
+  return D.2553;
+  <D.2552>:
+  _1 = n + -1;
+  _2 = fact (_1);
+  D.2553 = n * _2;
+  return D.2553;
+}
+
+
+int main ()
+{
+  int D.2555;
+
+  {
+    _1 = fact (10);
+    printf ("%d\n", _1);
+    D.2555 = 0;
+    return D.2555;
+  }
+  D.2555 = 0;
+  return D.2555;
+}
+
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int D.2557;
+
+  D.2557 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.2557;
+}
+
+

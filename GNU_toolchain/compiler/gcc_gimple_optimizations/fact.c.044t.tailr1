@@ -1,0 +1,93 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=964, cgraph_uid=16, symbol_order=15)
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+Symbols to be put in SSA form
+{ D.2560 }
+Incremental SSA update started at block: 0
+Number of blocks in CFG: 6
+Number of blocks to update: 5 ( 83%)
+
+
+Merging blocks 3 and 5
+int fact (int n)
+{
+  int _1;
+  int mult_acc_10;
+  int mult_acc_11;
+  int mul_tmp_12;
+
+  <bb 2> :
+  # n_5 = PHI <n_9(D)(0), _1(4)>
+  # mult_acc_10 = PHI <1(0), mult_acc_11(4)>
+  if (n_5 <= 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  // predicted unlikely by early return (on trees) predictor.
+  mul_tmp_12 = n_5 * mult_acc_10;
+  return mul_tmp_12;
+
+  <bb 4> :
+  _1 = n_5 + -1;
+  mult_acc_11 = mult_acc_10 * n_5;
+  goto <bb 2>; [INV]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24)
+
+int main ()
+{
+  int D.2568;
+  int n;
+  int mult_acc_1;
+  int mult_acc_7;
+  int mul_tmp_8;
+  int _9;
+  int mult_acc_10;
+
+  <bb 2> :
+
+  <bb 3> :
+  # n_6 = PHI <10(2), _9(5)>
+  # mult_acc_7 = PHI <1(2), mult_acc_10(5)>
+  if (n_6 == 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> :
+  # mult_acc_1 = PHI <mult_acc_7(3)>
+  mul_tmp_8 = mult_acc_1;
+  __printf_chk (1, "%d\n", mul_tmp_8);
+  return 0;
+
+  <bb 5> :
+  _9 = n_6 + -1;
+  mult_acc_10 = n_6 * mult_acc_7;
+  goto <bb 3>; [100.00%]
+
+}
+
+

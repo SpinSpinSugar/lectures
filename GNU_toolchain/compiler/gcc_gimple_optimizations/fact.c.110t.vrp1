@@ -1,0 +1,182 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;;
+;; Loop 1
+;;  header 3, latch 5
+;;  depth 1, outer 0
+;;  nodes: 3 5
+;; 2 succs { 3 }
+;; 3 succs { 4 5 }
+;; 4 succs { 1 }
+;; 5 succs { 3 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+n_8 -> { n_2 }
+mult_acc_9 -> { mult_acc_5 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 3 ( 50%)
+
+
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+n_10 -> { n_2 }
+n_11 -> { n_2 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 7
+Number of blocks to update: 4 ( 57%)
+
+
+
+Value ranges after VRP:
+
+_1: int [1, 2147483646]
+n_2: int [-INF, n_4(D)]
+n_4(D): int VARYING
+mult_acc_5: int [1, +INF]
+mult_acc_6: int [2, +INF]
+mul_tmp_7: int VARYING
+n_8: int [-INF, 1]  EQUIVALENCES: { n_2 } (1 elements)
+mult_acc_9: int [1, +INF]
+n_10: int [-INF, 1]  EQUIVALENCES: { n_2 } (1 elements)
+n_11: int [2, +INF]  EQUIVALENCES: { n_2 } (1 elements)
+
+
+Removing basic block 6
+int fact (int n)
+{
+  int _1;
+  int mult_acc_5;
+  int mult_acc_6;
+  int mul_tmp_7;
+  int mult_acc_9;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_2 = PHI <n_4(D)(2), _1(5)>
+  # mult_acc_5 = PHI <1(2), mult_acc_6(5)>
+  if (n_2 <= 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  # n_8 = PHI <n_2(3)>
+  # mult_acc_9 = PHI <mult_acc_5(3)>
+  mul_tmp_7 = n_8 * mult_acc_9;
+  return mul_tmp_7;
+
+  <bb 5> [local count: 955630225]:
+  _1 = n_2 + -1;
+  mult_acc_6 = mult_acc_5 * n_2;
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;;
+;; Loop 1
+;;  header 3, latch 5
+;;  depth 1, outer 0
+;;  nodes: 3 5
+;; 2 succs { 3 }
+;; 3 succs { 4 5 }
+;; 4 succs { 1 }
+;; 5 succs { 3 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+mult_acc_1 -> { mult_acc_4 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 3 ( 50%)
+
+
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+n_5 -> { n_3 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 2 ( 33%)
+
+
+
+Value ranges after VRP:
+
+mult_acc_1: int [1, +INF]
+n_3: int [1, 10]
+mult_acc_4: int [1, +INF]
+n_5: int [2, 10]  EQUIVALENCES: { n_3 } (1 elements)
+_6: int [1, 9]
+mult_acc_7: int [2, +INF]
+
+
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+n_9 -> { n_3 }
+mult_acc_10 -> { mult_acc_4 }
+n_11 -> { n_3 }
+mult_acc_12 -> { mult_acc_4 }
+Incremental SSA update started at block: 6
+Number of blocks in CFG: 8
+Number of blocks to update: 5 ( 62%)
+
+
+Merging blocks 2 and 6
+Removing basic block 5
+Merging blocks 7 and 3
+int main ()
+{
+  int n;
+  int mult_acc_1;
+  int _6;
+  int mult_acc_7;
+  int mult_acc_12;
+
+  <bb 2> [local count: 118111600]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 118111600]:
+  # mult_acc_1 = PHI <mult_acc_7(4)>
+  __printf_chk (1, "%d\n", mult_acc_1);
+  return 0;
+
+  <bb 4> [local count: 955630225]:
+  # n_11 = PHI <_6(4), 10(2)>
+  # mult_acc_12 = PHI <mult_acc_7(4), 1(2)>
+  _6 = n_11 + -1;
+  mult_acc_7 = mult_acc_12 * n_11;
+  if (_6 == 1)
+    goto <bb 3>; [12.36%]
+  else
+    goto <bb 4>; [87.64%]
+
+}
+
+

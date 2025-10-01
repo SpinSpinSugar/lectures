@@ -1,0 +1,61 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+int fact (int n)
+{
+  int D.2553;
+
+  <bb 2> :
+  if (n <= 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  D.2553 = n;
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _1 = n + -1;
+  _2 = fact (_1);
+  D.2553 = n * _2;
+
+  <bb 5> :
+  return D.2553;
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24)
+
+int main ()
+{
+  int D.2555;
+
+  <bb 2> :
+  _1 = fact (10);
+  printf ("%d\n", _1);
+  D.2555 = 0;
+  return D.2555;
+
+}
+
+
+
+;; Function printf (<unset-asm-name>, funcdef_no=15, decl_uid=964, cgraph_uid=16, symbol_order=15)
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int D.2557;
+
+  <bb 2> :
+  D.2557 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.2557;
+
+}
+
+
