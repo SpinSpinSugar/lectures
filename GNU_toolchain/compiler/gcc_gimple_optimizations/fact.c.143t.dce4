@@ -1,0 +1,73 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+Removing basic block 6
+Removing basic block 7
+Removing basic block 8
+int fact (int n)
+{
+  int _1;
+  int mult_acc_6;
+  int _9;
+  int mult_acc_13;
+  int prephitmp_14;
+
+  <bb 2> [local count: 118111600]:
+  if (n_4(D) <= 1)
+    goto <bb 3>; [11.00%]
+  else
+    goto <bb 4>; [89.00%]
+
+  <bb 3> [local count: 118111600]:
+  # prephitmp_14 = PHI <_9(5), n_4(D)(2)>
+  return prephitmp_14;
+
+  <bb 4> [local count: 955630225]:
+  # n_10 = PHI <_1(4), n_4(D)(2)>
+  # mult_acc_13 = PHI <mult_acc_6(4), 1(2)>
+  _1 = n_10 + -1;
+  mult_acc_6 = n_10 * mult_acc_13;
+  if (_1 <= 1)
+    goto <bb 5>; [11.00%]
+  else
+    goto <bb 4>; [89.00%]
+
+  <bb 5> [local count: 105119324]:
+  _9 = _1 * mult_acc_6;
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+int main ()
+{
+  int n;
+  int _6;
+  int mult_acc_7;
+  int mult_acc_12;
+
+  <bb 2> [local count: 118111600]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 118111600]:
+  __printf_chk (1, "%d\n", mult_acc_7);
+  return 0;
+
+  <bb 5> [local count: 837518624]:
+
+  <bb 4> [local count: 955630225]:
+  # n_11 = PHI <_6(5), 10(2)>
+  # mult_acc_12 = PHI <mult_acc_7(5), 1(2)>
+  _6 = n_11 + -1;
+  mult_acc_7 = n_11 * mult_acc_12;
+  if (_6 == 1)
+    goto <bb 3>; [12.36%]
+  else
+    goto <bb 5>; [87.64%]
+
+}
+
+

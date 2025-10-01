@@ -1,0 +1,123 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=964, cgraph_uid=16, symbol_order=15)
+
+
+Analyzing function body size: printf/15
+
+IPA function summary for printf/15 always_inline inlinable
+  global time:     15.000000
+  self size:       7
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    __printf_chk/25 function body not available
+      freq:1.00 loop depth: 0 size: 4 time: 13
+       op0 is compile time invariant
+
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+Analyzing function body size: fact/23
+
+IPA function summary for fact/23 inlinable
+  global time:     18.000000
+  self size:       10
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+    size:2.000000, time:2.000000,  nonconst if:(op0 changed)
+    size:1.000000, time:1.000000,  executed if:(op0 > 1),  nonconst if:(op0 changed) && (op0 > 1)
+    size:1.000000, time:1.000000,  executed if:(op0 > 1)
+  calls:
+    fact/23 function not considered for inlining
+      freq:1.00 loop depth: 0 size: 3 time: 12 callee size: 0 stack: 0 predicate: (op0 > 1)
+
+int fact (int n)
+{
+  int _1;
+  int _2;
+  int _3;
+  int _8;
+  int _9;
+
+  <bb 2> :
+  if (n_5(D) <= 1)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  _9 = n_5(D);
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  _1 = n_5(D) + -1;
+  _2 = fact (_1);
+  _8 = n_5(D) * _2;
+
+  <bb 5> :
+  # _3 = PHI <_9(3), _8(4)>
+  return _3;
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24)
+
+
+Analyzing function body size: main/24
+
+IPA function summary for main/24 inlinable
+  global time:     26.000000
+  self size:       9
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    printf/15 function not considered for inlining
+      freq:1.00 loop depth: 0 size: 3 time: 12 callee size: 3 stack: 0
+       op0 is compile time invariant
+    fact/23 function not considered for inlining
+      freq:1.00 loop depth: 0 size: 3 time: 12 callee size: 4 stack: 0
+       op0 is compile time invariant
+
+int main ()
+{
+  int _1;
+  int _5;
+
+  <bb 2> :
+  _1 = fact (10);
+  printf ("%d\n", _1);
+  _5 = 0;
+  return _5;
+
+}
+
+

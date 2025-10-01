@@ -1,0 +1,131 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=964, cgraph_uid=16, symbol_order=15)
+
+
+
+ local analysis of printf/15
+   scanning: _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  scanning: return _4;
+Function is locally looping.
+Function can locally free.
+__attribute__((artificial, gnu_inline, always_inline))
+__attribute__((nonnull (1), format (printf, 1, 2)))
+int printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+
+ local analysis of fact/23
+   scanning: if (n_5 <= 1)
+  scanning: // predicted unlikely by early return (on trees) predictor.
+  scanning: mul_tmp_12 = n_5 * mult_acc_10;
+  scanning: return mul_tmp_12;
+  scanning: _1 = n_5 + -1;
+  scanning: mult_acc_11 = mult_acc_10 * n_5;
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 5 2 3 4
+;;
+;; Loop 1
+;;  header 2, latch 4
+;;  depth 1, outer 0
+;;  nodes: 2 4
+;; 5 succs { 2 }
+;; 2 succs { 3 4 }
+;; 3 succs { 1 }
+;; 4 succs { 2 }
+Function is locally const.
+Function found to be const: fact
+Declaration updated to be const: fact
+int fact (int n)
+{
+  int _1;
+  int mult_acc_10;
+  int mult_acc_11;
+  int mul_tmp_12;
+
+  <bb 5> [local count: 118111600]:
+
+  <bb 2> [local count: 1073741824]:
+  # n_5 = PHI <n_9(D)(5), _1(4)>
+  # mult_acc_10 = PHI <1(5), mult_acc_11(4)>
+  if (n_5 <= 1)
+    goto <bb 3>; [11.00%]
+  else
+    goto <bb 4>; [89.00%]
+
+  <bb 3> [local count: 118111600]:
+  // predicted unlikely by early return (on trees) predictor.
+  mul_tmp_12 = n_5 * mult_acc_10;
+  return mul_tmp_12;
+
+  <bb 4> [local count: 955630225]:
+  _1 = n_5 + -1;
+  mult_acc_11 = mult_acc_10 * n_5;
+  goto <bb 2>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+
+
+ local analysis of main/24
+   scanning: if (n_6 == 1)
+  scanning: mul_tmp_8 = mult_acc_1;
+  scanning: __printf_chk (1, "%d\n", mul_tmp_8);
+  scanning: return 0;
+  scanning: _9 = n_6 + -1;
+  scanning: mult_acc_10 = n_6 * mult_acc_7;
+Function is locally looping.
+Function can locally free.
+int main ()
+{
+  int D.2568;
+  int n;
+  int mult_acc_1;
+  int mult_acc_7;
+  int mul_tmp_8;
+  int _9;
+  int mult_acc_10;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_6 = PHI <10(2), _9(5)>
+  # mult_acc_7 = PHI <1(2), mult_acc_10(5)>
+  if (n_6 == 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  # mult_acc_1 = PHI <mult_acc_7(3)>
+  mul_tmp_8 = mult_acc_1;
+  __printf_chk (1, "%d\n", mul_tmp_8);
+  return 0;
+
+  <bb 5> [local count: 955630225]:
+  _9 = n_6 + -1;
+  mult_acc_10 = n_6 * mult_acc_7;
+  goto <bb 3>; [100.00%]
+
+}
+
+

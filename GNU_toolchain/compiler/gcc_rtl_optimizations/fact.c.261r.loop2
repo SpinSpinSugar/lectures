@@ -1,0 +1,192 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+
+fact
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	 7 [sp] 16 [argp] 19 [frame]
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 5 [di] 17 [flags]
+;;  ref usage 	r0={2d,2u} r1={1d} r2={1d} r4={1d} r5={1d,1u} r6={1d,6u} r7={1d,6u} r16={1d,5u} r17={4d,2u} r19={1d,6u} r20={1d} r21={1d} r22={1d} r23={1d} r24={1d} r25={1d} r26={1d} r27={1d} r36={1d} r37={1d} r82={1d,1u} r83={3d,2u} r84={2d,5u} 
+;;    total ref usage 66{30d,36u,0e} in 12{12 regular + 0 call} insns.
+(note 6 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 6 3 2 (set (reg/v:SI 84 [ n ])
+        (reg:SI 5 di [ n ])) "fact.c":3:17 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg:SI 5 di [ n ])
+        (nil)))
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 3 10 2 (set (reg:SI 83 [ <retval> ])
+        (const_int 1 [0x1])) "fact.c":4:5 75 {*movsi_internal}
+     (nil))
+(insn 10 5 11 2 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg/v:SI 84 [ n ])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 11 10 30 2 (set (pc)
+        (if_then_else (gt (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 15)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCGC 17 flags)
+        (int_list:REG_BR_PROB 955630228 (nil)))
+ -> 15)
+(note 30 11 4 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 4 30 15 3 (set (reg:SI 83 [ <retval> ])
+        (reg/v:SI 84 [ n ])) "fact.c":4:5 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg/v:SI 84 [ n ])
+        (nil)))
+      ; pc falls through to BB 6
+(code_label 15 4 16 4 2 (nil) [1 uses])
+(note 16 15 17 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 4 (set (reg/v:SI 82 [ n ])
+        (reg/v:SI 84 [ n ])) 75 {*movsi_internal}
+     (nil))
+(insn 18 17 19 4 (parallel [
+            (set (reg/v:SI 84 [ n ])
+                (plus:SI (reg/v:SI 84 [ n ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 209 {*addsi_1}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(insn 19 18 21 4 (parallel [
+            (set (reg:SI 83 [ <retval> ])
+                (mult:SI (reg:SI 83 [ <retval> ])
+                    (reg/v:SI 82 [ n ])))
+            (clobber (reg:CC 17 flags))
+        ]) 408 {*mulsi3_1}
+     (expr_list:REG_DEAD (reg/v:SI 82 [ n ])
+        (expr_list:REG_UNUSED (reg:CC 17 flags)
+            (nil))))
+(insn 21 19 22 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 84 [ n ])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 22 21 25 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 26)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCZ 17 flags)
+        (int_list:REG_BR_PROB 118111604 (nil)))
+ -> 26)
+(note 25 22 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+      ; pc falls through to BB 4
+(code_label 26 25 29 6 1 (nil) [1 uses])
+(note 29 26 27 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 27 29 28 6 (set (reg/i:SI 0 ax)
+        (reg:SI 83 [ <retval> ])) "fact.c":6:1 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg:SI 83 [ <retval> ])
+        (nil)))
+(insn 28 27 0 6 (use (reg/i:SI 0 ax)) "fact.c":6:1 -1
+     (nil))
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+
+
+main
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	 7 [sp] 16 [argp] 19 [frame]
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 1 [dx] 4 [si] 5 [di] 7 [sp] 17 [flags]
+;;  ref usage 	r0={4d,3u} r1={3d,1u} r2={2d} r4={3d,1u} r5={3d,1u} r6={1d,6u} r7={1d,7u} r8={1d} r9={1d} r10={1d} r11={1d} r12={1d} r13={1d} r14={1d} r15={1d} r16={1d,5u} r17={4d,1u} r18={1d} r19={1d,6u} r20={2d} r21={2d} r22={2d} r23={2d} r24={2d} r25={2d} r26={2d} r27={2d} r28={1d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={2d} r37={2d} r38={1d} r39={1d} r44={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r82={1d,1u} r83={2d,3u} r84={2d,2u} r86={1d,1u} 
+;;    total ref usage 138{100d,38u,0e} in 15{14 regular + 1 call} insns.
+(note 5 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 5 3 2 NOTE_INSN_FUNCTION_BEG)
+(insn 3 2 4 2 (set (reg:SI 84 [ mult_acc_7 ])
+        (const_int 1 [0x1])) "fact.c":8:12 75 {*movsi_internal}
+     (nil))
+(insn 4 3 24 2 (set (reg/v:SI 83 [ _6 ])
+        (const_int 10 [0xa])) "fact.c":8:12 75 {*movsi_internal}
+     (nil))
+      ; pc falls through to BB 4
+(code_label 24 4 9 3 13 (nil) [1 uses])
+(note 9 24 10 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 3 (set (reg:SI 1 dx)
+        (reg:SI 84 [ mult_acc_7 ])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg:SI 84 [ mult_acc_7 ])
+        (nil)))
+(insn 11 10 12 3 (set (reg/f:DI 86)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 74 {*movdi_internal}
+     (nil))
+(insn 12 11 13 3 (set (reg:DI 4 si)
+        (reg/f:DI 86)) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 74 {*movdi_internal}
+     (expr_list:REG_DEAD (reg/f:DI 86)
+        (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)
+            (nil))))
+(insn 13 12 14 3 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 75 {*movsi_internal}
+     (nil))
+(insn 14 13 15 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 77 {*movqi_internal}
+     (nil))
+(call_insn 15 14 19 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>) [0 __builtin___printf_chk S1 A8])
+            (const_int 0 [0]))) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 824 {*call_value}
+     (expr_list:REG_DEAD (reg:SI 5 di)
+        (expr_list:REG_DEAD (reg:DI 4 si)
+            (expr_list:REG_DEAD (reg:SI 1 dx)
+                (expr_list:REG_UNUSED (reg:SI 0 ax)
+                    (expr_list:REG_CALL_DECL (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>)
+                        (nil))))))
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:SI (use (reg:SI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+      ; pc falls through to BB 6
+(code_label 19 15 20 4 12 (nil) [0 uses])
+(note 20 19 21 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 4 (set (reg/v:SI 82 [ n ])
+        (reg/v:SI 83 [ _6 ])) 75 {*movsi_internal}
+     (nil))
+(insn 22 21 23 4 (parallel [
+            (set (reg/v:SI 83 [ _6 ])
+                (plus:SI (reg/v:SI 83 [ _6 ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 209 {*addsi_1}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(insn 23 22 25 4 (parallel [
+            (set (reg:SI 84 [ mult_acc_7 ])
+                (mult:SI (reg:SI 84 [ mult_acc_7 ])
+                    (reg/v:SI 82 [ n ])))
+            (clobber (reg:CC 17 flags))
+        ]) 408 {*mulsi3_1}
+     (expr_list:REG_DEAD (reg/v:SI 82 [ n ])
+        (expr_list:REG_UNUSED (reg:CC 17 flags)
+            (nil))))
+(insn 25 23 26 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 83 [ _6 ])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 26 25 29 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 24)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCZ 17 flags)
+        (int_list:REG_BR_PROB 132709668 (nil)))
+ -> 24)
+(note 29 26 33 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+      ; pc falls through to BB 4
+(note 33 29 31 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 31 33 32 6 (set (reg/i:SI 0 ax)
+        (const_int 0 [0])) "fact.c":11:1 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg:SI 85 [ <retval> ])
+        (nil)))
+(insn 32 31 0 6 (use (reg/i:SI 0 ax)) "fact.c":11:1 -1
+     (nil))

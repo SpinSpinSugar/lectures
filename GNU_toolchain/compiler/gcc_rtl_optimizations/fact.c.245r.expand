@@ -1,0 +1,227 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+Edge 2->4 redirected to 9
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Forwarding edge 4->5 to 9 failed.
+Edge 7->5 redirected to 9
+
+
+try_optimize_cfg iteration 2
+
+Merging block 5 into block 4...
+Merged blocks 4 and 5.
+Merged 4 and 5 without moving.
+
+
+try_optimize_cfg iteration 3
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 6 NOTE_INSN_DELETED)
+(note 6 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 6 3 2 (set (reg/v:SI 84 [ n ])
+        (reg:SI 5 di [ n ])) "fact.c":3:17 -1
+     (nil))
+(note 3 2 10 2 NOTE_INSN_FUNCTION_BEG)
+(insn 10 3 11 2 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg/v:SI 84 [ n ])
+            (const_int 1 [0x1]))) "fact.c":4:5 -1
+     (nil))
+(jump_insn 11 10 30 2 (set (pc)
+        (if_then_else (gt (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 32)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (int_list:REG_BR_PROB 955630228 (nil))
+ -> 32)
+(note 30 11 4 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 4 30 13 4 (set (reg:SI 83 [ <retval> ])
+        (reg/v:SI 84 [ n ])) "fact.c":4:5 -1
+     (nil))
+(jump_insn 13 4 14 4 (set (pc)
+        (label_ref 26)) "fact.c":6:1 -1
+     (nil)
+ -> 26)
+(barrier 14 13 32)
+(code_label 32 14 31 6 4 (nil) [1 uses])
+(note 31 32 5 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 5 31 15 6 (set (reg:SI 83 [ <retval> ])
+        (const_int 1 [0x1])) "fact.c":4:5 -1
+     (nil))
+(code_label 15 5 16 7 2 (nil) [1 uses])
+(note 16 15 17 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 7 (set (reg/v:SI 82 [ n ])
+        (reg/v:SI 84 [ n ])) -1
+     (nil))
+(insn 18 17 19 7 (parallel [
+            (set (reg/v:SI 84 [ n ])
+                (plus:SI (reg/v:SI 84 [ n ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 -1
+     (nil))
+(insn 19 18 21 7 (parallel [
+            (set (reg:SI 83 [ <retval> ])
+                (mult:SI (reg:SI 83 [ <retval> ])
+                    (reg/v:SI 82 [ n ])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 21 19 22 7 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 84 [ n ])
+            (const_int 1 [0x1]))) "fact.c":4:5 -1
+     (nil))
+(jump_insn 22 21 25 7 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 26)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (int_list:REG_BR_PROB 118111604 (nil))
+ -> 26)
+(note 25 22 23 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 23 25 24 8 (set (pc)
+        (label_ref 15)) -1
+     (nil)
+ -> 15)
+(barrier 24 23 26)
+(code_label 26 24 29 9 1 (nil) [2 uses])
+(note 29 26 27 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 27 29 28 9 (set (reg/i:SI 0 ax)
+        (reg:SI 83 [ <retval> ])) "fact.c":6:1 -1
+     (nil))
+(insn 28 27 0 9 (use (reg/i:SI 0 ax)) "fact.c":6:1 -1
+     (nil))
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 5 3 2 NOTE_INSN_FUNCTION_BEG)
+(insn 3 2 4 2 (set (reg:SI 84 [ mult_acc_7 ])
+        (const_int 1 [0x1])) "fact.c":8:12 -1
+     (nil))
+(insn 4 3 7 2 (set (reg/v:SI 83 [ _6 ])
+        (const_int 10 [0xa])) "fact.c":8:12 -1
+     (nil))
+(jump_insn 7 4 8 2 (set (pc)
+        (label_ref 19)) "fact.c":8:12 -1
+     (nil)
+ -> 19)
+(barrier 8 7 24)
+(code_label 24 8 9 4 13 (nil) [1 uses])
+(note 9 24 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg:SI 1 dx)
+        (reg:SI 84 [ mult_acc_7 ])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (nil))
+(insn 11 10 12 4 (set (reg:DI 86)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (nil))
+(insn 12 11 13 4 (set (reg:DI 4 si)
+        (reg:DI 86)) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)
+        (nil)))
+(insn 13 12 14 4 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (nil))
+(insn 14 13 15 4 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (nil))
+(call_insn 15 14 16 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>) [0 __builtin___printf_chk S1 A8])
+            (const_int 0 [0]))) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 -1
+     (expr_list:REG_CALL_DECL (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>)
+        (nil))
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:SI (use (reg:SI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(insn 16 15 17 4 (set (reg:SI 85 [ <retval> ])
+        (const_int 0 [0])) "fact.c":11:1 -1
+     (nil))
+(jump_insn 17 16 18 4 (set (pc)
+        (label_ref 30)) "fact.c":11:1 -1
+     (nil)
+ -> 30)
+(barrier 18 17 19)
+(code_label 19 18 20 5 12 (nil) [2 uses])
+(note 20 19 21 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 5 (set (reg/v:SI 82 [ n ])
+        (reg/v:SI 83 [ _6 ])) -1
+     (nil))
+(insn 22 21 23 5 (parallel [
+            (set (reg/v:SI 83 [ _6 ])
+                (plus:SI (reg/v:SI 83 [ _6 ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 -1
+     (nil))
+(insn 23 22 25 5 (parallel [
+            (set (reg:SI 84 [ mult_acc_7 ])
+                (mult:SI (reg:SI 84 [ mult_acc_7 ])
+                    (reg/v:SI 82 [ n ])))
+            (clobber (reg:CC 17 flags))
+        ]) -1
+     (nil))
+(insn 25 23 26 5 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 83 [ _6 ])
+            (const_int 1 [0x1]))) "fact.c":4:5 -1
+     (nil))
+(jump_insn 26 25 29 5 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 24)
+            (pc))) "fact.c":4:5 -1
+     (int_list:REG_BR_PROB 132709668 (nil))
+ -> 24)
+(note 29 26 27 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 27 29 28 6 (set (pc)
+        (label_ref 19)) -1
+     (nil)
+ -> 19)
+(barrier 28 27 30)
+(code_label 30 28 33 7 11 (nil) [1 uses])
+(note 33 30 31 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 31 33 32 7 (set (reg/i:SI 0 ax)
+        (reg:SI 85 [ <retval> ])) "fact.c":11:1 -1
+     (nil))
+(insn 32 31 0 7 (use (reg/i:SI 0 ax)) "fact.c":11:1 -1
+     (nil))

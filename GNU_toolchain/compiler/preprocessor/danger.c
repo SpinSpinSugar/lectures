@@ -1,11 +1,11 @@
 #include <stdio.h>
-unsigned inc(unsigned n) {
-	// Preproccessor magic 
+int inc(unsigned n) {
+// Preproccessor magic \
     ++n;
-	return n;	
+    return n;	
 }
 
 int main() {
-	printf("%d", inc(42));
+	printf("%d\n", inc(42));
 	return 0;
 }
