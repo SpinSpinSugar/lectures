@@ -1,0 +1,68 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+int fact (int n)
+{
+  int _1;
+  int mult_acc_5;
+  int mult_acc_6;
+  int mul_tmp_7;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_2 = PHI <n_4(D)(2), _1(5)>
+  # mult_acc_5 = PHI <1(2), mult_acc_6(5)>
+  if (n_2 <= 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  mul_tmp_7 = n_2 * mult_acc_5;
+  return mul_tmp_7;
+
+  <bb 5> [local count: 955630225]:
+  _1 = n_2 + -1;
+  mult_acc_6 = mult_acc_5 * n_2;
+  goto <bb 3>; [100.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+int main ()
+{
+  int n;
+  int mult_acc_1;
+  int mult_acc_4;
+  int mul_tmp_5;
+  int _6;
+  int mult_acc_7;
+
+  <bb 2> [local count: 118111600]:
+
+  <bb 3> [local count: 1073741824]:
+  # n_3 = PHI <10(2), _6(5)>
+  # mult_acc_4 = PHI <1(2), mult_acc_7(5)>
+  if (n_3 == 1)
+    goto <bb 4>; [11.00%]
+  else
+    goto <bb 5>; [89.00%]
+
+  <bb 4> [local count: 118111600]:
+  # mult_acc_1 = PHI <mult_acc_4(3)>
+  mul_tmp_5 = mult_acc_1;
+  __printf_chk (1, "%d\n", mul_tmp_5);
+  return 0;
+
+  <bb 5> [local count: 955630225]:
+  _6 = n_3 + -1;
+  mult_acc_7 = n_3 * mult_acc_4;
+  goto <bb 3>; [100.00%]
+
+}
+
+

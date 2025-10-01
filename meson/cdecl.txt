@@ -1,0 +1,13 @@
+char * const * p3;
+char ** const * const t
+int (*x)[10][20];
+float *(*p)[16]
+int* (*xyz[10])(int*, char)
+void (*signal())()
+int (*(*var1)(double))[3]
+char *(*x[])()
+long **foo[7]
+int (*(*fun_one)(char *,double))[9][20];
+char *(*(**bar[][8])())[]
+int (*(*baz)())[3]
+float (*(*e[10])(int &))[5]

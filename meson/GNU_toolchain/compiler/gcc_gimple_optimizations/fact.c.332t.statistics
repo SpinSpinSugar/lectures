@@ -1,0 +1,133 @@
+28 ssa "unused VAR_DECLs removed" "fact" 1
+28 ssa "unused VAR_DECLs removed" "main" 1
+42 fre "RPO blocks" "printf" 1
+42 fre "RPO iterations == 10" "printf" 1
+42 fre "RPO blocks visited" "printf" 1
+42 fre "RPO blocks executable" "printf" 1
+42 fre "RPO block visited times == 1" "printf" 1
+42 fre "RPO num avail == 1" "printf" 1
+42 fre "RPO num values == 3" "printf" 1
+42 fre "RPO num lattice == 3" "printf" 1
+37 ccp "Copies propagated" "fact" 1
+37 ccp "Statements deleted" "fact" 1
+42 fre "RPO blocks" "fact" 4
+42 fre "RPO iterations == 10" "fact" 1
+42 fre "RPO num values == 7" "fact" 1
+42 fre "RPO blocks visited" "fact" 4
+42 fre "RPO blocks executable" "fact" 4
+42 fre "RPO block visited times == 1" "fact" 4
+42 fre "RPO num avail == 4" "fact" 1
+42 fre "RPO num lattice == 7" "fact" 1
+56 release_ssa "SSA names released" "fact" 5
+56 release_ssa "SSA name holes removed" "fact" 5
+37 ccp "Copies propagated" "main" 1
+37 ccp "Statements deleted" "main" 3
+37 ccp "Constants propagated" "main" 1
+42 fre "RPO blocks" "main" 4
+42 fre "RPO num values == 7" "main" 1
+42 fre "RPO blocks visited" "main" 6
+42 fre "RPO iterations == 15" "main" 1
+42 fre "RPO blocks executable" "main" 4
+42 fre "RPO block visited times == 1" "main" 2
+42 fre "RPO block visited times == 2" "main" 2
+42 fre "RPO num avail == 6" "main" 1
+42 fre "RPO num lattice == 7" "main" 1
+43 evrp "Incremental SSA update" "main" 1
+43 evrp "Statements folded" "main" 1
+43 evrp "Constants propagated" "main" 1
+43 evrp "Statements deleted" "main" 1
+49 tailr "Symbol to SSA rewrite" "main" 1
+56 release_ssa "unused VAR_DECLs removed" "main" 1
+56 release_ssa "SSA names released" "main" 4
+56 release_ssa "SSA name holes removed" "main" 4
+112 fre "RPO blocks" "fact" 4
+112 fre "RPO num values == 6" "fact" 1
+112 fre "RPO blocks visited" "fact" 6
+112 fre "RPO iterations == 15" "fact" 1
+112 fre "RPO blocks executable" "fact" 4
+112 fre "RPO block visited times == 1" "fact" 2
+112 fre "RPO block visited times == 2" "fact" 2
+112 fre "RPO num avail == 5" "fact" 1
+112 fre "RPO num lattice == 6" "fact" 1
+115 vrp "Incremental SSA update" "fact" 2
+115 vrp "Number of ASSERT_EXPR expressions inserted" "fact" 2
+120 copyprop "Copies propagated" "fact" 2
+120 copyprop "Statements deleted" "fact" 2
+125 ch "RPO blocks" "fact" 2
+125 ch "RPO iterations == 10" "fact" 1
+125 ch "Incremental SSA update" "fact" 1
+125 ch "RPO blocks visited" "fact" 2
+125 ch "RPO blocks executable" "fact" 2
+125 ch "RPO block visited times == 1" "fact" 2
+125 ch "RPO num avail == 0" "fact" 1
+125 ch "RPO num values == 3" "fact" 1
+125 ch "RPO num lattice == 3" "fact" 1
+125 ch "Eliminated" "fact" 2
+143 pre "RPO blocks" "fact" 7
+143 pre "compute_antic iterations == 2" "fact" 1
+143 pre "RPO iterations == 12" "fact" 1
+143 pre "RPO num values == 8" "fact" 1
+143 pre "RPO blocks visited" "fact" 9
+143 pre "Insertions" "fact" 1
+143 pre "New PHIs" "fact" 1
+143 pre "RPO blocks executable" "fact" 7
+143 pre "RPO block visited times == 1" "fact" 5
+143 pre "RPO block visited times == 2" "fact" 2
+143 pre "Eliminated" "fact" 1
+143 pre "insert iterations == 1" "fact" 1
+143 pre "RPO num avail == 7" "fact" 1
+143 pre "RPO num lattice == 8" "fact" 1
+148 dce "PHI nodes deleted" "fact" 2
+151 loopinit "Incremental SSA update" "fact" 1
+161 copyprop "Constants propagated" "fact" 1
+161 copyprop "Statements deleted" "fact" 1
+192 fre "RPO blocks" "fact" 4
+192 fre "RPO iterations == 10" "fact" 1
+192 fre "RPO num values == 7" "fact" 1
+192 fre "RPO blocks visited" "fact" 4
+192 fre "RPO blocks executable" "fact" 4
+192 fre "RPO block visited times == 1" "fact" 4
+192 fre "RPO num avail == 5" "fact" 1
+192 fre "RPO num lattice == 7" "fact" 1
+197 vrp "Incremental SSA update" "fact" 1
+197 vrp "Number of ASSERT_EXPR expressions inserted" "fact" 3
+103 ccp "Copies propagated" "main" 1
+103 ccp "Statements deleted" "main" 2
+112 fre "RPO blocks" "main" 4
+112 fre "RPO num values == 5" "main" 1
+112 fre "RPO blocks visited" "main" 6
+112 fre "RPO iterations == 15" "main" 1
+112 fre "RPO num lattice == 5" "main" 1
+112 fre "RPO blocks executable" "main" 4
+112 fre "RPO block visited times == 1" "main" 2
+112 fre "RPO block visited times == 2" "main" 2
+112 fre "RPO num avail == 4" "main" 1
+115 vrp "Incremental SSA update" "main" 2
+115 vrp "Jumps threaded" "main" 1
+115 vrp "Number of ASSERT_EXPR expressions inserted" "main" 1
+120 copyprop "Copies propagated" "main" 1
+120 copyprop "Statements deleted" "main" 1
+143 pre "RPO blocks" "main" 4
+143 pre "RPO num avail == 4" "main" 1
+143 pre "RPO num values == 5" "main" 1
+143 pre "compute_antic iterations == 2" "main" 1
+143 pre "RPO blocks visited" "main" 6
+143 pre "RPO iterations == 15" "main" 1
+143 pre "RPO blocks executable" "main" 4
+143 pre "RPO block visited times == 1" "main" 2
+143 pre "RPO block visited times == 2" "main" 2
+143 pre "insert iterations == 1" "main" 1
+143 pre "RPO num lattice == 5" "main" 1
+151 loopinit "Incremental SSA update" "main" 1
+192 fre "RPO blocks" "main" 3
+192 fre "RPO iterations == 10" "main" 1
+192 fre "RPO blocks visited" "main" 3
+192 fre "RPO num lattice == 5" "main" 1
+192 fre "RPO blocks executable" "main" 3
+192 fre "RPO block visited times == 1" "main" 3
+192 fre "RPO num avail == 4" "main" 1
+192 fre "RPO num values == 5" "main" 1
+197 vrp "Incremental SSA update" "main" 2
+197 vrp "Number of ASSERT_EXPR expressions inserted" "main" 1
+198 copyprop "Copies propagated" "main" 1
+198 copyprop "Statements deleted" "main" 1

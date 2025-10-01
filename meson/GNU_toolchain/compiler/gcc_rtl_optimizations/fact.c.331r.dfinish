@@ -1,0 +1,203 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+(note 1 0 55 NOTE_INSN_DELETED)
+(insn 55 1 6 2 (unspec_volatile [
+            (const_int 0 [0])
+        ] UNSPECV_NOP_ENDBR) 1242 {nop_endbr}
+     (nil))
+(note 6 55 46 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 46 6 3 2 NOTE_INSN_PROLOGUE_END)
+(note 3 46 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn:TI 5 3 10 2 (set (reg:SI 0 ax [orig:83 <retval> ] [83])
+        (const_int 1 [0x1])) "fact.c":4:5 75 {*movsi_internal}
+     (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+(insn 10 5 11 2 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg/v:SI 5 di [orig:84 n ] [84])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 11 10 15 2 (set (pc)
+        (if_then_else (le (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 53)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCGC 17 flags)
+        (int_list:REG_BR_PROB 118111604 (nil)))
+ -> 53)
+(code_label 15 11 16 3 2 (nil) [1 uses])
+(note 16 15 17 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn:TI 17 16 18 3 (set (reg/v:SI 1 dx [orig:82 n ] [82])
+        (reg/v:SI 5 di [orig:84 n ] [84])) 75 {*movsi_internal}
+     (nil))
+(insn 18 17 19 3 (parallel [
+            (set (reg/v:SI 5 di [orig:84 n ] [84])
+                (plus:SI (reg/v:SI 5 di [orig:84 n ] [84])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 209 {*addsi_1}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(insn:TI 19 18 21 3 (parallel [
+            (set (reg:SI 0 ax [orig:83 <retval> ] [83])
+                (mult:SI (reg:SI 0 ax [orig:83 <retval> ] [83])
+                    (reg/v:SI 1 dx [orig:82 n ] [82])))
+            (clobber (reg:CC 17 flags))
+        ]) 408 {*mulsi3_1}
+     (expr_list:REG_DEAD (reg/v:SI 1 dx [orig:82 n ] [82])
+        (expr_list:REG_UNUSED (reg:CC 17 flags)
+            (nil))))
+(insn 21 19 22 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 5 di [orig:84 n ] [84])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 22 21 29 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 15)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCZ 17 flags)
+        (int_list:REG_BR_PROB 955630228 (nil)))
+ -> 15)
+(note 29 22 28 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 28 29 54 4 (use (reg/i:SI 0 ax)) "fact.c":6:1 -1
+     (nil))
+(note 54 28 48 4 NOTE_INSN_EPILOGUE_BEG)
+(jump_insn:TI 48 54 49 4 (simple_return) "fact.c":6:1 837 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 49 48 53)
+(code_label 53 49 30 5 10 (nil) [1 uses])
+(note 30 53 4 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn:TI 4 30 50 5 (set (reg:SI 0 ax [orig:83 <retval> ] [83])
+        (reg/v:SI 5 di [orig:84 n ] [84])) "fact.c":4:5 75 {*movsi_internal}
+     (expr_list:REG_DEAD (reg/v:SI 5 di [orig:84 n ] [84])
+        (nil)))
+(insn 50 4 43 5 (use (reg/i:SI 0 ax)) -1
+     (nil))
+(jump_insn:TI 43 50 44 5 (simple_return) 837 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 44 43 45)
+(note 45 44 0 NOTE_INSN_DELETED)
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+(note 1 0 54 NOTE_INSN_DELETED)
+(insn 54 1 5 2 (unspec_volatile [
+            (const_int 0 [0])
+        ] UNSPECV_NOP_ENDBR) 1242 {nop_endbr}
+     (nil))
+(note 5 54 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 5 43 2 NOTE_INSN_FUNCTION_BEG)
+(insn/f:TI 43 2 44 2 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -8 [0xfffffffffffffff8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) "fact.c":8:12 1142 {pro_epilogue_adjust_stack_add_di}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (expr_list:REG_CFA_ADJUST_CFA (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -8 [0xfffffffffffffff8])))
+            (nil))))
+(note 44 43 3 2 NOTE_INSN_PROLOGUE_END)
+(insn 3 44 4 2 (set (reg:SI 1 dx [orig:84 mult_acc_7 ] [84])
+        (const_int 1 [0x1])) "fact.c":8:12 75 {*movsi_internal}
+     (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+(insn 4 3 19 2 (set (reg/v:SI 0 ax [orig:83 _6 ] [83])
+        (const_int 10 [0xa])) "fact.c":8:12 75 {*movsi_internal}
+     (expr_list:REG_EQUAL (const_int 10 [0xa])
+        (nil)))
+(code_label 19 4 20 3 12 (nil) [1 uses])
+(note 20 19 21 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn:TI 21 20 22 3 (set (reg/v:SI 2 cx [orig:82 n ] [82])
+        (reg/v:SI 0 ax [orig:83 _6 ] [83])) 75 {*movsi_internal}
+     (nil))
+(insn 22 21 23 3 (parallel [
+            (set (reg/v:SI 0 ax [orig:83 _6 ] [83])
+                (plus:SI (reg/v:SI 0 ax [orig:83 _6 ] [83])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":5:13 209 {*addsi_1}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(insn:TI 23 22 25 3 (parallel [
+            (set (reg:SI 1 dx [orig:84 mult_acc_7 ] [84])
+                (mult:SI (reg:SI 1 dx [orig:84 mult_acc_7 ] [84])
+                    (reg/v:SI 2 cx [orig:82 n ] [82])))
+            (clobber (reg:CC 17 flags))
+        ]) 408 {*mulsi3_1}
+     (expr_list:REG_DEAD (reg/v:SI 2 cx [orig:82 n ] [82])
+        (expr_list:REG_UNUSED (reg:CC 17 flags)
+            (nil))))
+(insn 25 23 26 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/v:SI 0 ax [orig:83 _6 ] [83])
+            (const_int 1 [0x1]))) "fact.c":4:5 11 {*cmpsi_1}
+     (nil))
+(jump_insn 26 25 9 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 19)
+            (pc))) "fact.c":4:5 806 {*jcc}
+     (expr_list:REG_DEAD (reg:CCZ 17 flags)
+        (int_list:REG_BR_PROB 941032164 (nil)))
+ -> 19)
+(note 9 26 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn:TI 11 9 13 4 (set (reg/f:DI 4 si [86])
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 74 {*movdi_internal}
+     (expr_list:REG_EQUIV (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc4d8987cf0 *.LC0>)
+        (nil)))
+(insn 13 11 51 4 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 75 {*movsi_internal}
+     (nil))
+(insn 51 13 15 4 (parallel [
+            (set (reg:DI 0 ax)
+                (const_int 0 [0]))
+            (clobber (reg:CC 17 flags))
+        ]) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 68 {*movdi_xor}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(call_insn:TI 15 51 52 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>) [0 __builtin___printf_chk S1 A8])
+            (const_int 0 [0]))) "/usr/include/x86_64-linux-gnu/bits/stdio2.h":112:10 824 {*call_value}
+     (expr_list:REG_DEAD (reg:SI 5 di)
+        (expr_list:REG_DEAD (reg:DI 4 si)
+            (expr_list:REG_DEAD (reg:SI 1 dx)
+                (expr_list:REG_UNUSED (reg:SI 0 ax)
+                    (expr_list:REG_CALL_DECL (symbol_ref:DI ("__printf_chk") [flags 0x41]  <function_decl 0x7fc4d8888c00 __printf_chk>)
+                        (nil))))))
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:SI (use (reg:SI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(insn 52 15 53 4 (parallel [
+            (set (reg:DI 0 ax)
+                (const_int 0 [0]))
+            (clobber (reg:CC 17 flags))
+        ]) "fact.c":11:1 68 {*movdi_xor}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (nil)))
+(note 53 52 46 4 NOTE_INSN_EPILOGUE_BEG)
+(insn/f 46 53 32 4 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+            (clobber (mem:BLK (scratch) [0  A8]))
+        ]) "fact.c":11:1 1142 {pro_epilogue_adjust_stack_add_di}
+     (expr_list:REG_UNUSED (reg:CC 17 flags)
+        (expr_list:REG_CFA_ADJUST_CFA (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 8 [0x8])))
+            (nil))))
+(insn 32 46 47 4 (use (reg/i:SI 0 ax)) "fact.c":11:1 -1
+     (nil))
+(jump_insn:TI 47 32 50 4 (simple_return) "fact.c":11:1 837 {simple_return_internal}
+     (nil)
+ -> simple_return)
+(barrier 50 47 42)
+(note 42 50 0 NOTE_INSN_DELETED)

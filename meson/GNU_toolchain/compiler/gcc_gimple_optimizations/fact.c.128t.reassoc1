@@ -1,0 +1,94 @@
+
+;; Function fact (fact, funcdef_no=23, decl_uid=2546, cgraph_uid=24, symbol_order=23)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4
+;;
+;; Loop 1
+;;  header 4, latch 4
+;;  depth 1, outer 0
+;;  nodes: 4
+;; 2 succs { 3 4 }
+;; 3 succs { 1 }
+;; 4 succs { 3 4 }
+int fact (int n)
+{
+  int _1;
+  int mult_acc_6;
+  int mul_tmp_7;
+  int mult_acc_12;
+  int mult_acc_13;
+
+  <bb 2> [local count: 118111600]:
+  if (n_4(D) <= 1)
+    goto <bb 3>; [11.00%]
+  else
+    goto <bb 4>; [89.00%]
+
+  <bb 3> [local count: 118111600]:
+  # n_11 = PHI <_1(4), n_4(D)(2)>
+  # mult_acc_12 = PHI <mult_acc_6(4), 1(2)>
+  mul_tmp_7 = n_11 * mult_acc_12;
+  return mul_tmp_7;
+
+  <bb 4> [local count: 955630225]:
+  # n_10 = PHI <_1(4), n_4(D)(2)>
+  # mult_acc_13 = PHI <mult_acc_6(4), 1(2)>
+  _1 = n_10 + -1;
+  mult_acc_6 = mult_acc_13 * n_10;
+  if (_1 <= 1)
+    goto <bb 3>; [11.00%]
+  else
+    goto <bb 4>; [89.00%]
+
+}
+
+
+
+;; Function main (main, funcdef_no=24, decl_uid=2548, cgraph_uid=25, symbol_order=24) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4
+;;
+;; Loop 1
+;;  header 4, latch 4
+;;  depth 1, outer 0
+;;  nodes: 4
+;; 2 succs { 4 }
+;; 3 succs { 1 }
+;; 4 succs { 3 4 }
+int main ()
+{
+  int n;
+  int _6;
+  int mult_acc_7;
+  int mult_acc_12;
+
+  <bb 2> [local count: 118111600]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 118111600]:
+  __printf_chk (1, "%d\n", mult_acc_7);
+  return 0;
+
+  <bb 4> [local count: 955630225]:
+  # n_11 = PHI <_6(4), 10(2)>
+  # mult_acc_12 = PHI <mult_acc_7(4), 1(2)>
+  _6 = n_11 + -1;
+  mult_acc_7 = mult_acc_12 * n_11;
+  if (_6 == 1)
+    goto <bb 3>; [12.36%]
+  else
+    goto <bb 4>; [87.64%]
+
+}
+
+
